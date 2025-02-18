@@ -31,8 +31,8 @@ function MovieCardSlider({ sliderData, handleMovieChange }) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -56,11 +56,11 @@ function MovieCardSlider({ sliderData, handleMovieChange }) {
   };
 
   return (
-    <div className="p-10">
+    <div className="p-10 ml-10">
       <div>
         <h1>You'll probably also like...</h1>
         <div className="slider-container">
-          <Slider className="flex justify-between" {...settings}>
+          <Slider className="w-full flex justify-between" {...settings}>
             {sliderData.map((movie, index) => {
               return (
                 <MovieCard

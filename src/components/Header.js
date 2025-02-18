@@ -29,12 +29,13 @@ function Header({
       })
       .then((data) => {
         setMovieData(data);
+        setSearchResults([...searchResults, data]);
       });
   };
 
   return (
-    <div className="flex w-full justify-between mx-10 p-10">
-      <div className="flex w-1/3 flex-col items-start gap-2">
+    <div className="flex md:flex-row flex-col justify-center items-center md:w-full md:justify-between mx-10 p-10">
+      <div className="flex w-full md:w-1/3 flex-col items-center md:mb-0 mb-4 md:items-start gap-2">
         <h1 className="flex gap-4 text-2xl">
           <FaFilm />
           <span>WatoWatch</span>
@@ -42,8 +43,8 @@ function Header({
         <p className="text-sm font-thin">File Movie that you may like</p>
       </div>
 
-      <div className="flex w-2/3 flex-col">
-        <div className="flex flex-col justify-items-start items-start">
+      <div className="flex w-full md:w-2/3 flex-col md:items-start">
+        <div className="flex flex-col md:items-start">
           <div className="flex justify-center">
             <input
               className="w-98 p-2 rounded-full bg-white text-black "
@@ -64,7 +65,7 @@ function Header({
             </button>
           </div>
           {dropdown && searchKey.length > 0 && (
-            <ul className="text-black mt-1 ">
+            <ul className="absolute text-black mt-11 ml-10 z-10">
               {searchResults.map((movie, index) => {
                 return (
                   <li
@@ -73,7 +74,7 @@ function Header({
                       setDropdown(false);
                       setSearchKey("");
                     }}
-                    className="rounded-lg bg-white ring-1 w-96 h-10 p-2 hover:bg-black/10 hover:text-white cursor-pointer"
+                    className="rounded-lg bg-white ring-1 w-96 h-10 p-2 hover:bg-black hover:text-white cursor-pointer"
                     key={index}
                   >
                     <p>{movie.Title}</p>
