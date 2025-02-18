@@ -6,12 +6,14 @@ import "slick-carousel/slick/slick-theme.css";
 function MovieCard({ movie, handleMovieChange }) {
   return (
     <div
-      className={`flex items-end bg-[url(${movie.Poster})] bg-cover shadow-lg  w-52 h-36 rounded-lg cursor-pointer`}
+      className={`flex items-end bg-[url(${movie.Poster})] bg-cover shadow-lg lg:w-56 md:w-40 w-44 h-36 rounded-lg cursor-pointer`}
       onClick={() => {
         handleMovieChange(movie);
       }}
     >
-      <p className="bg-black/70 text-lg text-center w-full">{movie.Title}</p>
+      <p className="bg-black/70 text-lg text-center w-full rounded-b-lg">
+        {movie.Title}
+      </p>
     </div>
   );
 }
@@ -31,18 +33,18 @@ function MovieCardSlider({ sliderData, handleMovieChange }) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToShow: 3,
+          slidesToScroll: 3,
           infinite: true,
           dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 800,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2,
+          initialSlide: 1,
         },
       },
       {
@@ -56,7 +58,7 @@ function MovieCardSlider({ sliderData, handleMovieChange }) {
   };
 
   return (
-    <div className="p-10 ml-10">
+    <div className="pb-10 md:p-10 ml-10">
       <div>
         <h1>You'll probably also like...</h1>
         <div className="slider-container">
